@@ -1,0 +1,89 @@
+header {
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.container_logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container_bt_menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: -655px;
+}
+main {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+section {
+    width: 550px;
+    height: 743px;
+    background-color: var(--grey-1);
+}
+
+select {
+    width: 100%;
+    height: 52px;
+    text-align: center;
+    font-family: var(--font-family-inter);
+    font-size: 20px;
+    background-color: var(--color-brand);
+    color: var(--color-white);
+    margin-bottom: 10px;
+}
+
+ul {
+    height: 700px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+}
+
+li {
+    width: 90%;
+    height: 135px;
+    border-bottom: 1px solid var(--color-brand);
+}
+
+li>h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-black);
+    margin-bottom: 20px;
+}
+
+li>p {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--color-black);
+    margin-bottom: 20px;
+}
+
+.bt_setor {
+    width: 130px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: var(--font-family-inter);
+    border: 1px solid var(--color-brand);
+    border-radius: 20px;
+    background-color: transparent;
+    color: var(--color-brand);
+    margin-bottom: 10px;
+}

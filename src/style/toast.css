@@ -1,0 +1,109 @@
+.container_toast {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 30px;
+    bottom: 10px;
+    width: 441.73px;
+    height: 125px;
+    padding: 20px;
+    background: #FCFEFF;
+    box-shadow: 0px 4px 30px -12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    animation: toastInt 4000ms ease-in forwards;
+    /* display: none; */
+}
+
+@keyframes toastInt {
+    0%   {right: 30px; bottom: -100px}
+    25%  {right: 30px; bottom: 10px}
+}
+
+.container_imgCheck_h3 {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.bt_imagem {
+    width: 24px;
+    height: 24px;
+    background-image: url("/src/assets/check.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #087F5B;
+    border: transparent;
+    border-radius: 50%;
+    
+}
+
+.titulo {
+    font-weight: 500;
+    font-size: 16px;
+    color: #087F5B;
+}
+
+.texto {
+    width: 377.73px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #343A40;
+}
+
+.texto > a {
+    color: var(--color-brand);
+}
+
+.container_toast_invalido {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 30px;
+    bottom: 10px;
+    width: 400px;
+    height: 125px;
+    padding: 20px;
+    background: #FCFEFF;
+    box-shadow: 0px 4px 30px -12px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    animation: toastInt_invalido 4000ms ease-in forwards;
+    display: none;
+}
+
+@keyframes toastInt_invalido {
+    0%   {right: 30px; bottom: -100px}
+    25%  {right: 30px; bottom: 10px}
+    50%   {right: 30px; bottom: 10px}
+    100%  {right: 30px; bottom: -130px}
+}
+
+.container_imgCheck_h3_invalido {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.bt_imagem_invalido {
+    width: 50px;
+    height: 50px;
+    background-image: url("/src/assets/errorIcon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: transparent;
+    border-radius: 50%;
+    
+    
+}
+
+.titulo_invalido {
+    font-weight: 500;
+    font-size: 16px;
+    color: #f03839;
+}
+
+.texto_invalido {
+    width: 377.73px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #343A40;
+}

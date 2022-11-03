@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/style/globalStyles.css">
+    <link rel="stylesheet" href="/src/style/button.css">
+    <link rel="stylesheet" href="/src/style/modal.css">
+    <link rel="stylesheet" href="/src/style/modalDepartamento.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Kenzie Empresas - Admin</title>
+</head>
+<body>
+    <header>
+        <div class="container_logo">
+            <img src="/src/assets/Ellipse 1 (2).png" alt="Bolinha roxa">
+            <img src="/src/assets/Kenzie Empresas - logo.png" alt="Logo Kenzie Empresas">
+        </div>
+        <div class="container_bt_menu">
+            <button class="bt_menu1">Logout</button>
+        </div>
+    </header>
+    <div class="conteiner">
+        <h2 class="texto_departamentos">Departamentos</h2>
+        <select class="selecionar_empresas" name="" id="selecionar_empresas">
+            <option value="">Selecionar Empresas</option>
+        </select>
+        <button class="bt_criar">
+            <img src="/src/assets/Vector (1).png" alt="">
+            Criar 
+        </button>
+    </div>
+        <main>
+            <section class="conteiner_departamento_usuario_cadastrado">
+                <ul class="container_ul" id="container_departamento">
+                    
+                </ul>
+            </section>
+            <h2 class="usuarios_cadastrados">Usuários cadastrados</h2>
+            <section class="conteiner_departamento_usuario_cadastrado">
+                <ul class="container_ul" id="container_usuario">
+                    
+                </ul>
+            </section>
+        </main>
+<!-- 
+        <h3>Realmente deseja remover o usuário NOME?</h3>
+        <button class="bt_deletar">Deletar</button> -->
+
+        <section class="container_receberModal"></section>
+    <script type="module" src="/src/script/admin.js"></script>
+</body>
+</html>

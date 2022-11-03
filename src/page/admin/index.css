@@ -1,0 +1,142 @@
+header {
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container_logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 60px;
+}
+
+.container_bt_menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 60px;
+}
+
+.conteiner {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.texto_departamentos {
+    font-family: var(--font-family-inter);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.selecionar_empresas {
+    border: 1px solid #000000;
+    border-radius: 15px;
+    width: 282px;
+    height: 32px;
+    text-align: center;
+}
+
+.bt_criar {
+    border: transparent;
+    background-color: var(--color-brand);
+    width: 110px;
+    height: 32px;
+    color: var(--color-white);
+    font-size: 18px;
+}
+
+button>img {
+    width: 15px;
+}
+
+main {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.conteiner_departamento_usuario_cadastrado {
+    height: 350px;
+    background: #F8F8F8;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.conteiner_departamento_usuario_cadastrado::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.conteiner_departamento_usuario_cadastrado::-webkit-scrollbar-track {
+    background: #F8F8F8;
+}
+
+.conteiner_departamento_usuario_cadastrado::-webkit-scrollbar-thumb {
+    background: var(--color-brand);
+}
+
+.container_ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 90px;
+
+}
+
+.container_li {
+    width: 450px;
+    height: 170px;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-bottom: 1px solid #4200FF;
+}
+
+.departamento {
+    margin-bottom: 10px;
+}
+
+.empresa {
+    margin-top: 10px;
+}
+
+.imgs {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.img_departamento {
+    padding-right: 15px;
+}
+
+.usuarios_cadastrados {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.bt_deletar {
+    
+    width: 300px;
+    height: 48px;
+    color: #FFFFFF;
+    background: #4BA036;
+    border: transparent;
+    margin-top: 20px;
+}
+
+.container_descricao_departamento_select{
+    width: 100%;
+}
+
+.selecionar_usuario {
+     width: 400px;
+    margin-left: 10px;
+}

@@ -1,0 +1,81 @@
+.container_descricao_departamento_select {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+
+}
+
+.texto_empresa_pertencente {
+    margin-top: 10px;
+}
+
+.selecionar_usuario {
+    width: 300px;
+    height: 52px;
+    padding-left: 20px;
+}
+
+.bt_cantratar {
+    width: 120px;
+    height: 48px;
+    border: transparent;
+    background: #4BA036;
+    color: var(--color-white);
+    margin-left: 530px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container_desligamento {
+    width: 50%;
+    height: 190px;
+    background: #F8F8F8;
+    overflow-x: scroll;
+
+}
+
+.container_desligamento::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.container_desligamento::-webkit-scrollbar-track {
+    background: #F8F8F8;
+}
+
+.container_desligamento::-webkit-scrollbar-thumb {
+    background: var(--color-brand);
+}
+
+.ul_desligamento {
+    margin-left: 80px;
+    display: flex;
+    gap: 10px;
+}
+
+.container_desligamento_li {
+    width: 290px;
+    height: 150px;
+    background-color: var(--color-white);
+    padding: 20px;
+    padding-right: 100px;
+    border-bottom: 1px solid #4200FF;
+    margin-top: 20px;
+}
+
+.nome,
+.nivel {
+    margin-bottom: 5px;
+}
+
+.bt_desligar {
+    font-size: 18px;
+    color: #CE4646;
+    width: 120px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #CE4646;
+    margin: 10px 0 0 50px;
+}
