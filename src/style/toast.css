@@ -56,7 +56,9 @@
     color: var(--color-brand);
 }
 
-.container_toast_invalido {
+.container_toast_invalido,
+.container_toast_invalido_email,
+.container_toast_invalido_senha {
     display: flex;
     flex-direction: column;
     position: fixed;

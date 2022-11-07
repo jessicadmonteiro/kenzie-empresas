@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="/src/style/globalStyles.css">
     <link rel="stylesheet" href="/src/style/button.css">
     <link rel="stylesheet" href="/src/page/home/index.css">
+    <link rel="stylesheet" href="/src/style/mobileHome.css">
     <title>Kenzie Empresas - Home</title>
 </head>
 <body>
-    <header>
+    <header class="desktop">
         <div class="container_logo">
             <img src="/src/assets/Ellipse 1 (2).png" alt="Bolinha roxa">
             <img src="src/assets/Kenzie Empresas - logo.png" alt="Logo Kenzie Empresas">
@@ -19,10 +20,20 @@
             <button class="bt_menu1">Login</button>
             <button class="bt_menu2">Cadastro</button>
         </div>
-        <h2></h2>
     </header>
+    <header class="mobile">
+        <div class="container_logo">
+            <img src="/src/assets/Ellipse 1 (2).png" alt="Bolinha roxa">
+            <img src="src/assets/Kenzie Empresas - logo.png" alt="Logo Kenzie Empresas">
+        </div>
+        <img src="/src/assets/Vector (5).png" alt="">
+    </header>
+    <div class="mobile container_bt_menu_mobile">
+        <button class="bt_menu1">Login</button>
+        <button class="bt_menu2">Cadastro</button>
+    </div>
     <main>
-        <img src="/src/assets/Rectangle 6.png" alt="">
+        <img class="img_home" src="/src/assets/Rectangle 6.png" alt="">
         <section>
             <select name="selecionarSetor" id="selecionarSetor">
 

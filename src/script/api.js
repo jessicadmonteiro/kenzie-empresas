@@ -79,7 +79,6 @@ export async function criarUsuario (body) {
             body: JSON.stringify(body)
             
         })
-        console.log(request)
         if(request.ok){
             const response = await request.json()
             const toast = document.querySelector(".container_toast")
@@ -114,13 +113,30 @@ export async function login (body) {
     .then (res => {
        
         localStorage.setItem("token", JSON.stringify(res.token))
+        if(res.error === "required password!"){
+
+            const toast = document.querySelector(".container_toast_invalido")
+            toast.style.display = "flex"
+        }
+        else if(res.error === "email invalid!"){
+
+            const toast = document.querySelector(".container_toast_invalido_email")
+            toast.style.display = "flex"
+        }if(res.error === "password invalid!"){
+            
+            const toast = document.querySelector(".container_toast_invalido_senha")
+            toast.style.display = "flex"
+        }
         
         
     }).then (() => {
         verificarUsuario ()
         listarUsuarios()
     })
+    
 }
+
+
 
 
 export async function verificarUsuario () {
