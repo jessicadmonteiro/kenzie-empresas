@@ -1,66 +1,72 @@
 let baseUrl = "http://localhost:6278"
 
 export async function todosSetores () {
-    let selecao = fetch (`${baseUrl}/sectors`, {
-        method: "GET"
-    })
-    .then (res => res.json())
-    .then (res =>{
-        
-        let setor =  localStorage.setItem("setores",JSON.stringify(res))
-       
-    })
+    try{
+        let url = fetch (`${baseUrl}/sectors`, {
+            method: "GET",
+            headers: { 
+                "Content-Type": "application/json"
+            }
+        })
+        const response = await (await url).json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
 }
-todosSetores ()
 
-export async function listarEmpresa () {
-    let selecao = fetch (`${baseUrl}/companies`, {
-        method: "GET"
-    })
-    .then (res => res.json())
-    .then (res =>{
-        
-        let setor =  localStorage.setItem("setor",JSON.stringify(res))
-       
-    })
+export async function listarEmpresas () {
+    
+    try {
+        let url = fetch (`${baseUrl}/companies`, {
+            method: "GET",
+            headers: { 
+                "Content-Type": "application/json"
+            }
+        })
+
+        const response = await (await url).json()
+
+        return response
+    }catch(err) {
+        console.log(err)
+    }
 }
-listarEmpresa () 
-
 
 
 export async function listarDepartamento () {
     
-    let selecao = fetch (`${baseUrl}/departments`, {
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
-        }
-    })
-    .then (res => res.json())
-    .then (res =>{
-        
-         localStorage.setItem("departamento",JSON.stringify(res))
-       
-    })
+    try {
+        let url = await fetch (`${baseUrl}/departments`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
+        })
+        const response = await url.json()
+        return response
+    }catch (err) {
+        console.log(err)
+    }
+   
 }
 
 
 export async function listarUsuarios() {
+    try {
+        let url = fetch (`${baseUrl}/users`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
+        })
+        const response = await (await url).json()
+        return response
+    }catch (err) {
+        console.log(err)
+    }
     
-    let selecao = fetch (`${baseUrl}/users`, {
-        method: "GET",
-        headers: {
-            "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
-        }
-    })
-    .then (res => res.json())
-    .then (res =>{
-        console.log(res)
-         localStorage.setItem("cadastroUsuario",JSON.stringify(res))
-       
-    })
 }
-
 
 export async function criarUsuario (body) {
     
@@ -73,11 +79,16 @@ export async function criarUsuario (body) {
             body: JSON.stringify(body)
             
         })
-        
+        console.log(request)
         if(request.ok){
             const response = await request.json()
             const toast = document.querySelector(".container_toast")
             toast.style.display = "flex"
+
+            setTimeout(() =>{
+                window.location.replace("/src/page/login/index.html")
+            }, 4000)
+            
         }else{
             const toast = document.querySelector(".container_toast_invalido")
             toast.style.display = "flex"
@@ -107,7 +118,6 @@ export async function login (body) {
         
     }).then (() => {
         verificarUsuario ()
-        listarDepartamento ()
         listarUsuarios()
     })
 }
@@ -123,7 +133,7 @@ export async function verificarUsuario () {
     })
     .then(res => res.json()) 
     .then (res =>{
-        console.log(res) 
+
         if(res.is_admin){
             window.location.assign("/src/page/admin/index.html")
         }else {
@@ -134,34 +144,169 @@ export async function verificarUsuario () {
     .catch((err => console.log(err)))
 }
 
+export async function getUsuario ()  {
 
-export async function informacaoUsuario () {
-
-    let url = fetch(`${baseUrl}/users/profile`, {
-        method: "GET",
-        headers: { 
-            "Authorization": `Bearer ${local.token}`
-        }
-    })
-    .then (res => res.json())
-    .then (res =>{
-        console.log(res)     
-
-        localStorage.setItem("usuario", JSON.stringify(res))
-    })
-    .catch((err => console.log(err)))
+    try{
+        let url = fetch(`${baseUrl}/users/profile`, {
+            method: "GET",
+            headers: { 
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
+        })
+        const response = await (await url).json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
 }
-// informacaoUsuario () 
 
 export async function editarInformacaoes (body) {
-    let url = fetch(`${baseUrl}/users`, {
-        method: "PATCH",
-            headers: { 
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.token}`
-            },
-            body: JSON.stringify(body)
-    })
+    try {
+        let url = fetch(`${baseUrl}/users`, {
+            method: "PATCH",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+                },
+                body: JSON.stringify(body)
+        })
+        const response = await (await url).json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+     
 }
 
 
+export async function usuarioSemDepartamento () {
+
+    try {
+        let url = await fetch(`${baseUrl}/admin/out_of_work`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
+        })
+        const response = await url.json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+   
+    
+}
+
+
+export async function deletarUsuario (id) {
+        try {
+            const request = await fetch(`${baseUrl}/admin/delete_user/${id}`, {
+                method: "DELETE",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+                },
+            })
+    
+            const response = await request.json()
+            return response
+        }catch(err) {
+            console.log(err)
+        }
+}
+
+export async function editarUsuario (body, uuid) {
+    try {
+        const url = await fetch(`${baseUrl}/admin/update_user/${uuid}`, {
+            method: "PATCH",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await url.json()
+        console.log(response)
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+
+}
+
+export async function criarDepartamento (body) {
+
+    try {
+        const url = await fetch(`${baseUrl}/departments`, {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await url.json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+}
+
+export async function editarDepartamento (body, id) {
+   
+    try {
+        const url = await fetch(`${baseUrl}/departments/${id}`, {
+            method: "PATCH",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await url.json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+    
+}
+
+export async function excluirDepartamento (id) {
+   
+    try {
+        const url = await fetch(`${baseUrl}/departments/${id}`, {
+            method: "DELETE",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            },
+        })
+
+        const response = await url.json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+    
+}
+
+export async function contratarFuncionario (body) {
+    try {
+        const url = await fetch(`${baseUrl}/departments/hire/`, {
+            method: "PATCH",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await url.json()
+        return response
+    }catch(err) {
+        console.log(err)
+    }
+}

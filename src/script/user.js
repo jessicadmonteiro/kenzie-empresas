@@ -1,17 +1,28 @@
+import {editarInformacaoes, getUsuario } from "./api.js"
+import {abirModal} from "./modal_user.js"
 
-import {editarInformacaoes } from "./api.js"
-import {abirModal} from "./modal.js"
+function eventoLogout () {
 
-function edita() {
+    const botaoLogout = document.querySelector(".bt_menu1")
+    botaoLogout.addEventListener("click", () => {
+
+        window.location.assign("/index.html")
+        localStorage.removeItem("token")
+       
+    })
+}
+eventoLogout ()
+
+function editar() {
 
     const formulario = document.createElement("form")
 
     formulario.insertAdjacentHTML("beforeend",
         `
      <h3 class="titulo_modal">Editar Perfil</h3>
-     <input name="username" type="text" id="username" placeholder="Seu nome" required>
+     <input name="username" type="text" id="username" placeholder="Seu nome">
      <input type="email" name="email" id="email" placeholder="Seu e-mail" >
-     <input type="passpassword" name="password" id="password" placeholder="Sua senha">
+     <input type="password" name="password" id="password" placeholder="Sua senha">
      <button type="submit" class="bt_editar">Editar perfil</button>
      `
     )
@@ -20,6 +31,7 @@ function edita() {
         event.preventDefault()
 
         const inputs = [...event.target]
+        console.log(inputs)
 
         const informacao = {}
 
@@ -29,8 +41,9 @@ function edita() {
                 informacao[name] = value
             }
         })
-
+        
         await editarInformacaoes(informacao)
+        await informacaoUsuario ()
 
         const modal = document.querySelector(".fundo_modal")
         modal.remove()
@@ -40,35 +53,50 @@ function edita() {
 }
 
 
-
-async function section() {
-    let usuario = JSON.parse(localStorage.getItem("usuario"))
+async function informacaoUsuario () {
+    
+    const usuario = await getUsuario ()
     console.log(usuario)
 
-    function dadosUsuario(nome, email, nivel) {
-        return `
-        
-            <h2>${nome}</h2>
-            <div class="container_informacoesUsuario">
-                <p>Email: ${email}</p>
-                <p>${nivel}</p>
-                <p>Home Office</p>
-            </div>
-            <button class="bt_img"></button>
-            `
-    }
+    function renderizarInformacoes (arr) {
+        let section = document.querySelector("section")
+        section.innerHTML = ""
 
-    document.body.insertAdjacentHTML(
-        "beforeend",
-       `<section>
-            ${dadosUsuario(usuario.username
-                , usuario.email
-                , usuario.professional_level)}
-        </section>
-        ` 
-    )
+        let nome  = arr.username
+        let email = arr.email
+        let nivel = arr.professional_level
+        let modalidade = arr.kind_of_work
+
+        let h2 = document.createElement("h2")
+        let div = document.createElement("div")
+        let pEmail = document.createElement("p")
+        let pNivel = document.createElement("p")
+        let pModalidade = document.createElement("p")
+        let bt = document.createElement("button")
+
+        div.classList.add("container_informacoesUsuario")
+        bt.classList.add("bt_img")
+        bt.addEventListener("click", () => {
+
+            let editarInformacao = editar() 
+            abirModal(editarInformacao)
+
+        })
+
+        h2.innerText     = nome
+        pEmail.innerText = `Email: ${email}`
+        pNivel.innerText = nivel
+        pModalidade.innerText = modalidade
+
+        div.append(pEmail, pNivel, pModalidade)
+        section.append(h2, div, bt)
+    
+    }
+    renderizarInformacoes(usuario)
 }
-section()
+informacaoUsuario ()
+
+
 
 async function div () {
   function dados() {
@@ -86,12 +114,3 @@ async function div () {
     )
 }
 div ()
-
-let botao = document.querySelector(".bt_img")
-
-botao.addEventListener("click", () => {
-    
-    let editarInformacao = edita() 
-    abirModal(editarInformacao)
-
-})

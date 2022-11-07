@@ -36,3 +36,11 @@ function eventoCadastro () {
 }
 eventoCadastro ()
 
+function eventoRetornar () {
+    const botao = document.querySelector(".bt_retorno")
+
+    botao.addEventListener("click", () => {
+        window.location.replace("/index.html")
+    })
+}
+eventoRetornar ()

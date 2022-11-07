@@ -36,3 +36,12 @@ function eventoLogin () {
     
 }
 eventoLogin ()
+
+function eventoCadastreSe () {
+    const botao = document.querySelector(".bt_cadastre_se")
+
+    botao.addEventListener("click", () => {
+        window.location.replace("/src/page/register/index.html")
+    })
+}
+eventoCadastreSe ()

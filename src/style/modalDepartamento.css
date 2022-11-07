@@ -11,10 +11,14 @@
     margin-top: 10px;
 }
 
-.selecionar_usuario {
+#selecionar_usuario {
+    position: absolute;
+    right: 20px;
+    top: 60px;
     width: 300px;
-    height: 52px;
-    padding-left: 20px;
+    height: 45px;
+    padding-left: 10px;
+    
 }
 
 .bt_cantratar {
@@ -23,13 +27,13 @@
     border: transparent;
     background: #4BA036;
     color: var(--color-white);
-    margin-left: 530px;
+    margin-left: 490px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .container_desligamento {
-    width: 50%;
+    width: 90%;
     height: 190px;
     background: #F8F8F8;
     overflow-x: scroll;
@@ -79,3 +83,28 @@
     border: 1px solid #CE4646;
     margin: 10px 0 0 50px;
 }
+
+.h3_deletar_departamento,
+.h3_deletar_usuario {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
+.bt_verde {
+    width: 50%;
+    background: #4BA036;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.div_select {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

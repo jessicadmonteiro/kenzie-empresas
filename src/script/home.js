@@ -1,8 +1,9 @@
-import { todosSetores, listarEmpresa} from "./api.js";
+import { todosSetores, listarEmpresas} from "./api.js";
 
-let setores = JSON.parse(localStorage.setores)
+let setores =  await todosSetores ()
 
-let empresas  = JSON.parse(localStorage.setor)
+let empresas  = await listarEmpresas ()
+
 
 function paginaLogin () {
     let botaoLogin = document.querySelector(".bt_menu1")
@@ -56,7 +57,6 @@ function renderizarEmpresa (arr) {
     let ul = document.querySelector("ul")
     ul.innerHTML = ""
 
-    
     arr.forEach(element => {
         let nome   = element.name
         let horas  = element.opening_hours[0,1]
