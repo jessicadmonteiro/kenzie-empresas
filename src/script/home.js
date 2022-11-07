@@ -21,6 +21,18 @@ function paginaCadastro() {
 }
 paginaCadastro()
 
+const botao = document.querySelector(".bt_img")
+botao.addEventListener("click", () => {
+    let containerBts = document.querySelector(".container_bt_menu_mobile")
+    containerBts.style.display = "flex"
+})
+
+const botaoX = document.querySelector(".bt_x")
+botaoX.addEventListener("click", () => {
+    let containerBts = document.querySelector(".container_bt_menu_mobile")
+    containerBts.style.display = "none"
+})
+
 function seletoresHome (arr) {
     let containerSeletor = document.querySelector("#selecionarSetor")
     containerSeletor.innerHTML = ""
